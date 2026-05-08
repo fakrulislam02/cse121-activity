@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>School of Computing and Artificial Intelligence</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:#f8fafc;
+            color:#334155;
+            line-height:1.6;
+        }
+
+        /* ============================================
+           HEADER
+        ============================================ */
+
+        header{
+            background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+            color:white;
+            padding:1rem 0;
+            position:sticky;
+            top:0;
+            z-index:100;
+            box-shadow:0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .header-container{
+            max-width:1200px;
+            margin:auto;
+            padding:0 2rem;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            gap:1rem;
+            text-align:center;
+        }
+
+        .school-name{
+            font-size:2rem;
+            font-weight:700;
+            color:#f8fafc;
+            line-height:1.4;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:2rem;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:#e2e8f0;
+            cursor:pointer;
+            transition:0.3s;
+            font-weight:500;
+        }
+
+        nav a:hover{
+            color:#38bdf8;
+        }
+
+        /* ============================================
+           MAIN
+        ============================================ */
+
+        main{
+            max-width:1200px;
+            margin:auto;
+            padding:2rem;
+        }
+
+        section{
+            display:none;
+            animation:fadeIn 0.5s ease;
+        }
+
+        section.active{
+            display:block;
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        .card-section{
+            background:white;
+            padding:2.5rem;
+            border-radius:18px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        /* ============================================
+           BANNER
+        ============================================ */
+
+        .banner{
+            width:100%;
+            height:340px;
+            border-radius:18px;
+            background:linear-gradient(135deg,#2563eb 0%,#06b6d4 100%);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            font-size:2.3rem;
+            font-weight:700;
+            margin-bottom:2rem;
+            padding:2rem;
+            box-shadow:0 10px 25px rgba(37,99,235,0.25);
+        }
+
+        .welcome-message{
+            text-align:center;
+        }
+
+        .welcome-message h1{
+            color:#0f172a;
+            margin-bottom:1rem;
+            font-size:2.8rem;
+        }
+
+        .welcome-message p{
+            max-width:850px;
+            margin:auto;
+            color:#475569;
+            font-size:1.1rem;
+        }
+
+        .welcome-btn{
+            margin-top:2rem;
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:14px 35px;
+            border-radius:8px;
+            cursor:pointer;
+            transition:0.3s;
+            font-size:1rem;
+            font-weight:600;
+        }
+
+        .welcome-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-3px);
+        }
+
+        /* ============================================
+           HEADINGS
+        ============================================ */
+
+        h2{
+            color:#0f172a;
+            margin-bottom:1.5rem;
+            text-align:center;
+            font-size:2rem;
+        }
+
+        /* ============================================
+           ABOUT
+        ============================================ */
+
+        .about-section p{
+            color:#475569;
+            margin-bottom:1rem;
+            text-align:center;
+            font-size:1.05rem;
+        }
+
+        /* ============================================
+           COURSES
+        ============================================ */
+
+        .courses-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:2rem;
+            margin-top:2rem;
+        }
+
+        .course-card{
+            background:linear-gradient(135deg,#ffffff 0%,#f1f5f9 100%);
+            border:2px solid #2563eb;
+            border-radius:15px;
+            padding:2rem;
+            transition:0.3s;
+        }
+
+        .course-card:hover{
+            transform:translateY(-8px);
+            background:#dbeafe;
+            box-shadow:0 12px 25px rgba(37,99,235,0.15);
+        }
+
+        .course-card h3{
+            color:#1e3a8a;
+            margin-bottom:1rem;
+            text-align:center;
+        }
+
+        .course-card p{
+            color:#475569;
+            text-align:center;
+        }
+
+        /* ============================================
+           CONTACT
+        ============================================ */
+
+        .contact-form{
+            max-width:650px;
+            margin:auto;
+        }
+
+        .form-group{
+            margin-bottom:1.5rem;
+        }
+
+        label{
+            display:block;
+            margin-bottom:0.5rem;
+            font-weight:600;
+            color:#0f172a;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:14px;
+            border-radius:8px;
+            border:2px solid #dbeafe;
+            font-size:1rem;
+            font-family:'Poppins', sans-serif;
+        }
+
+        input:focus,
+        textarea:focus{
+            border-color:#2563eb;
+            outline:none;
+            box-shadow:0 0 10px rgba(37,99,235,0.2);
+        }
+
+        .submit-btn{
+            width:100%;
+            padding:14px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            transition:0.3s;
+            font-size:1rem;
+            font-weight:600;
+        }
+
+        .submit-btn:hover{
+            background:#1d4ed8;
+        }
+
+        .error-message{
+            color:red;
+            font-size:0.9rem;
+        }
+
+        .success-message{
+            color:green;
+            font-size:0.95rem;
+        }
+
+        /* ============================================
+           TIPS
+        ============================================ */
+
+        .tips-section ul{
+            padding-left:1.5rem;
+            line-height:2;
+            color:#475569;
+        }
+
+        .tips-section li{
+            margin-bottom:1rem;
+        }
+
+        code{
+            background:#e2e8f0;
+            padding:3px 6px;
+            border-radius:5px;
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+
+        footer{
+            background:#0f172a;
+            color:#e2e8f0;
+            text-align:center;
+            padding:2rem;
+            margin-top:3rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+
+        @media(max-width:768px){
+
+            .school-name{
+                font-size:1.5rem;
+            }
+
+            nav ul{
+                gap:1rem;
+            }
+
+            .banner{
+                height:240px;
+                font-size:1.6rem;
+            }
+
+            .welcome-message h1{
+                font-size:2rem;
+            }
+
+            main{
+                padding:1rem;
+            }
+
+            .card-section{
+                padding:1.5rem;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-container">
+
+            <h1 class="school-name">
+                🎓 School of Computing and Artificial Intelligence
+            </h1>
+
+            <nav>
+
+                <ul>
+                    <li><a onclick="showSection('home')">Home</a></li>
+                    <li><a onclick="showSection('about')">About</a></li>
+                    <li><a onclick="showSection('courses')">Courses</a></li>
+                    <li><a onclick="showSection('contact')">Contact</a></li>
+                    <li><a onclick="showSection('tips')">Tips</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- HOME -->
+
+        <section id="home" class="card-section active">
+
+            <div class="banner">
+                Welcome to <br>
+                School of Computing and Artificial Intelligence
+            </div>
+
+            <div class="welcome-message">
+
+                <h1>Welcome 👋</h1>
+
+                <p>
+                    We provide quality education in computing,
+                    programming, technology, and artificial intelligence
+                    to help students build successful careers in the digital world.
+                </p>
+
+                <button class="welcome-btn" onclick="showWelcomeMessage()">
+                    Explore More
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ABOUT -->
+
+        <section id="about" class="card-section about-section">
+
+            <h2>About Us</h2>
+
+            <p>
+                School of Computing and Artificial Intelligence is dedicated
+                to innovation, technology education, and academic excellence.
+            </p>
+
+            <p>
+                We focus on programming, software engineering,
+                cloud computing, data science, and AI technologies.
+            </p>
+
+            <p>
+                Our mission is to prepare students for the future
+                through practical learning and modern technology education.
+            </p>
+
+        </section>
+
+        <!-- COURSES -->
+
+        <section id="courses" class="card-section">
+
+            <h2>Our Courses</h2>
+
+            <div class="courses-container">
+
+                <div class="course-card">
+
+                    <h3>💻 Web Development</h3>
+
+                    <p>
+                        Learn HTML, CSS, JavaScript,
+                        React, and full-stack development.
+                    </p>
+
+                </div>
+
+                <div class="course-card">
+
+                    <h3>🤖 Artificial Intelligence</h3>
+
+                    <p>
+                        Explore machine learning,
+                        neural networks, and AI systems.
+                    </p>
+
+                </div>
+
+                <div class="course-card">
+
+                    <h3>📊 Data Science</h3>
+
+                    <p>
+                        Learn data analysis,
+                        visualization, and predictive analytics.
+                    </p>
+
+                </div>
+
+                <div class="course-card">
+
+                    <h3>☁️ Cloud Computing</h3>
+
+                    <p>
+                        Master cloud platforms,
+                        networking, and scalable applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+
+        <section id="contact" class="card-section">
+
+            <h2>Contact Us</h2>
+
+            <form class="contact-form" id="contactForm" onsubmit="validateForm(event)">
+
+                <div class="form-group">
+
+                    <label>Your Name *</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+
+                    <span class="error-message" id="nameError"></span>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Your Email *</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                    <span class="error-message" id="emailError"></span>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Your Message *</label>
+
+                    <textarea
+                        id="message"
+                        rows="5"
+                        placeholder="Type your message"
+                    ></textarea>
+
+                    <span class="error-message" id="messageError"></span>
+
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+
+                <span class="success-message" id="successMessage"></span>
+
+            </form>
+
+        </section>
+
+        <!-- TIPS -->
+
+        <section id="tips" class="card-section tips-section">
+
+            <h2>🚀 Website Improvement Tips</h2>
+
+            <ul>
+
+                <li>
+                    <strong>Add Real Images:</strong>
+                    Replace the gradient banner with actual campus,
+                    classroom, or laboratory images to make the
+                    website more realistic and professional.
+                </li>
+
+                <li>
+                    <strong>Create an Admissions Section:</strong>
+                    Add admission dates, eligibility criteria,
+                    fee structure, and an online registration form.
+                </li>
+
+                <li>
+                    <strong>Add Faculty Information:</strong>
+                    Display teacher cards with names,
+                    qualifications, and specializations.
+                </li>
+
+                <li>
+                    <strong>Show Student Projects:</strong>
+                    Showcase AI, programming, or web development
+                    projects created by students.
+                </li>
+
+                <li>
+                    <strong>Add a Gallery Section:</strong>
+                    Include photos of workshops,
+                    seminars, events, and competitions.
+                </li>
+
+                <li>
+                    <strong>Improve Navigation:</strong>
+                    Add smooth scrolling, active menu highlighting,
+                    and a mobile-friendly navigation menu.
+                </li>
+
+                <li>
+                    <strong>Add Social Media Links:</strong>
+                    Connect Instagram, LinkedIn,
+                    GitHub, and YouTube profiles.
+                </li>
+
+                <li>
+                    <strong>Use Better Animations:</strong>
+                    Add smooth hover effects and transitions
+                    without making the page too heavy.
+                </li>
+
+                <li>
+                    <strong>Optimize for Mobile:</strong>
+                    Test the website on phones and tablets
+                    to ensure proper spacing and readability.
+                </li>
+
+                <li>
+                    <strong>Add Dark Mode:</strong>
+                    Create a light/dark theme switch
+                    for a modern user experience.
+                </li>
+
+                <li>
+                    <strong>Add Placement Information:</strong>
+                    Show internship opportunities,
+                    company partnerships, and placement records.
+                </li>
+
+                <li>
+                    <strong>Improve Footer Content:</strong>
+                    Add address, contact number,
+                    email, and quick navigation links.
+                </li>
+
+                <li>
+                    <strong>Improve SEO:</strong>
+                    Add proper meta tags and keywords
+                    to improve Google search ranking.
+                </li>
+
+                <li>
+                    <strong>Deploy Online:</strong>
+                    Host your website using GitHub Pages,
+                    Netlify, or Vercel for free.
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 School of Computing and Artificial Intelligence
+        </p>
+
+        <p>
+            Empowering students with future technology skills.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function showSection(sectionId){
+
+            const sections=document.querySelectorAll('section');
+
+            sections.forEach(section=>{
+                section.classList.remove('active');
+            });
+
+            document.getElementById(sectionId)
+            .classList.add('active');
+
+            window.scrollTo({
+                top:0,
+                behavior:'smooth'
+            });
+        }
+
+        function showWelcomeMessage(){
+
+            alert(
+                "🎉 Welcome to the School of Computing and Artificial Intelligence!\n\nExplore our technology and AI programs."
+            );
+        }
+
+        function validateForm(event){
+
+            event.preventDefault();
+
+            const name=document.getElementById('name').value.trim();
+            const email=document.getElementById('email').value.trim();
+            const message=document.getElementById('message').value.trim();
+
+            document.getElementById('nameError').textContent="";
+            document.getElementById('emailError').textContent="";
+            document.getElementById('messageError').textContent="";
+            document.getElementById('successMessage').textContent="";
+
+            let isValid=true;
+
+            if(name===""){
+
+                document.getElementById('nameError').textContent=
+                "Please enter your name";
+
+                isValid=false;
+            }
+
+            const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if(email===""){
+
+                document.getElementById('emailError').textContent=
+                "Please enter your email";
+
+                isValid=false;
+            }
+
+            else if(!emailPattern.test(email)){
+
+                document.getElementById('emailError').textContent=
+                "Please enter a valid email";
+
+                isValid=false;
+            }
+
+            if(message.length<10){
+
+                document.getElementById('messageError').textContent=
+                "Message must be at least 10 characters";
+
+                isValid=false;
+            }
+
+            if(isValid){
+
+                document.getElementById('successMessage').textContent=
+                "✅ Message sent successfully!";
+
+                document.getElementById('contactForm').reset();
+
+                alert(
+                    "Thank you for contacting the School of Computing and Artificial Intelligence!"
+                );
+            }
+        }
+
+        window.onload=()=>{
+
+            showSection('home');
+        };
+
+    </script>
+
+</body>
+
+</html>
